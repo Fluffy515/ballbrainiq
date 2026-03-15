@@ -158,13 +158,13 @@
       });
     }
 
-    const accountPlaceholderBtn = document.querySelector(".account-placeholder-btn");
+    const accountBtn = document.querySelector(".account-placeholder-btn");
 
-    if (accountPlaceholderBtn) {
-      accountPlaceholderBtn.addEventListener("click", () => {
-        alert("Accounts and login features are coming soon.");
-      });
-    }
+if (accountBtn) {
+  accountBtn.addEventListener("click", () => {
+    window.location.href = "account.html";
+  });
+}
 
     const searchInput = document.getElementById("searchInput");
     const brandFilter = document.getElementById("brandFilter");
