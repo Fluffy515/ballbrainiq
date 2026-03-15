@@ -598,6 +598,27 @@
   </div>
 </section>
 
+<section id="accountPanel">
+  <h2>Account</h2>
+
+  <div id="loggedOutView">
+    <input id="signupName" placeholder="Display name" />
+    <input id="authEmail" type="email" placeholder="Email" />
+    <input id="authPassword" type="password" placeholder="Password" />
+    <button id="signupBtn">Create Account</button>
+    <button id="loginBtn">Log In</button>
+  </div>
+
+  <div id="loggedInView" style="display:none;">
+    <p id="accountEmail"></p>
+    <button id="logoutBtn">Log Out</button>
+  </div>
+
+  <p id="authMessage"></p>
+</section>
+
+
+
 <div id="toastContainer" class="toast-container"></div>
 
   </main>
