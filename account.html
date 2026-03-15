@@ -9,12 +9,12 @@
 <body class="account-body">
   <header class="site-header">
     <div class="header-side header-left">
-      <a href="index.html" class="header-nav-btn">Back to App</a>
+      <a href="index.html" class="header-nav-btn">Back</a>
     </div>
 
     <div class="header-center">
       <a href="index.html">
-        <img src="logo.png" alt="BallBrainIQ Logo" class="logo">
+        <img src="logo.png" alt="BallBrainIQ Logo" class="logo" />
       </a>
     </div>
 
@@ -25,17 +25,17 @@
     <section class="account-card">
       <div class="account-card-top">
         <p class="account-eyebrow">BALLBRAINIQ ACCOUNT</p>
-        <h1>Save your arsenal across devices.</h1>
+        <h1>Your account</h1>
         <p class="account-subtitle">
-          Create an account to keep your arsenal, sessions, and future premium tools connected.
+          Save your arsenal, manage your profile, and see your membership status.
         </p>
       </div>
 
-      <div id="loggedOutView" class="account-form-wrap">
+      <div id="loggedOutView">
         <div class="account-form-grid">
           <div class="form-field">
             <label for="signupName">Display Name</label>
-            <input id="signupName" type="text" placeholder="Your name" />
+            <input id="signupName" type="text" placeholder="Your display name" />
           </div>
 
           <div class="form-field">
@@ -45,7 +45,7 @@
 
           <div class="form-field">
             <label for="authPassword">Password</label>
-            <input id="authPassword" type="password" placeholder="Create a password" />
+            <input id="authPassword" type="password" placeholder="Enter password" />
           </div>
         </div>
 
@@ -55,13 +55,29 @@
         </div>
       </div>
 
-      <div id="loggedInView" class="account-logged-in" style="display:none;">
-        <div class="account-status-pill">You are signed in</div>
-        <h2>Welcome back</h2>
-        <p class="account-email-line">Logged in as <span id="accountEmail"></span></p>
+      <div id="loggedInView" style="display:none;">
+        <div class="account-status-pill">Logged in</div>
+
+        <div class="account-info-grid">
+          <div class="account-info-box">
+            <h3>Email</h3>
+            <p id="accountEmail">—</p>
+          </div>
+
+          <div class="account-info-box">
+            <h3>Display Name</h3>
+            <p id="accountDisplayName">—</p>
+          </div>
+
+          <div class="account-info-box">
+            <h3>Subscription</h3>
+            <p id="subscriptionStatus">Free</p>
+          </div>
+        </div>
+
         <div class="account-actions">
           <button id="logoutBtn" class="secondary-btn" type="button">Log Out</button>
-          <a href="index.html" class="primary-btn account-link-btn">Go to BallBrainIQ</a>
+          <a href="index.html" class="primary-btn account-link-btn">Return to App</a>
         </div>
       </div>
 
@@ -69,9 +85,9 @@
     </section>
   </main>
 
-<script src="js/config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabaseClient.js"></script>
-<script src="js/auth.js"></script>
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>
