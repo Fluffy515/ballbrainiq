@@ -1,56 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BallBrain Account</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<script src="js/config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabaseClient.js"></script>
-<script src="js/auth.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BallBrainIQ Account</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body class="account-body">
+  <header class="site-header">
+    <div class="header-side header-left">
+      <a href="index.html" class="header-nav-btn">Back to App</a>
+    </div>
 
-<body>
+    <div class="header-center">
+      <a href="index.html">
+        <img src="logo.png" alt="BallBrainIQ Logo" class="logo">
+      </a>
+    </div>
 
-<header class="site-header">
-    <a href="index.html">
-        <img src="logo.png" class="logo">
-    </a>
-</header>
+    <div class="header-side header-right"></div>
+  </header>
 
-<main class="account-page">
+  <main class="account-page-shell">
+    <section class="account-card">
+      <div class="account-card-top">
+        <p class="account-eyebrow">BALLBRAINIQ ACCOUNT</p>
+        <h1>Save your arsenal across devices.</h1>
+        <p class="account-subtitle">
+          Create an account to keep your arsenal, sessions, and future premium tools connected.
+        </p>
+      </div>
 
-<h1>Account</h1>
+      <div id="loggedOutView" class="account-form-wrap">
+        <div class="account-form-grid">
+          <div class="form-field">
+            <label for="signupName">Display Name</label>
+            <input id="signupName" type="text" placeholder="Your name" />
+          </div>
 
-<div id="loggedOutView">
+          <div class="form-field">
+            <label for="authEmail">Email</label>
+            <input id="authEmail" type="email" placeholder="you@example.com" />
+          </div>
 
-<input id="signupName" type="text" placeholder="Display Name">
+          <div class="form-field">
+            <label for="authPassword">Password</label>
+            <input id="authPassword" type="password" placeholder="Create a password" />
+          </div>
+        </div>
 
-<input id="authEmail" type="email" placeholder="Email">
+        <div class="account-actions">
+          <button id="signupBtn" class="primary-btn" type="button">Create Account</button>
+          <button id="loginBtn" class="secondary-btn" type="button">Log In</button>
+        </div>
+      </div>
 
-<input id="authPassword" type="password" placeholder="Password">
+      <div id="loggedInView" class="account-logged-in" style="display:none;">
+        <div class="account-status-pill">You are signed in</div>
+        <h2>Welcome back</h2>
+        <p class="account-email-line">Logged in as <span id="accountEmail"></span></p>
+        <div class="account-actions">
+          <button id="logoutBtn" class="secondary-btn" type="button">Log Out</button>
+          <a href="index.html" class="primary-btn account-link-btn">Go to BallBrainIQ</a>
+        </div>
+      </div>
 
-<button id="signupBtn">Create Account</button>
+      <p id="authMessage" class="auth-message"></p>
+    </section>
+  </main>
 
-<button id="loginBtn">Log In</button>
-
-</div>
-
-<div id="loggedInView" style="display:none">
-
-<p>Logged in as: <span id="accountEmail"></span></p>
-
-<button id="logoutBtn">Log Out</button>
-
-</div>
-
-<p id="authMessage"></p>
-
-</main>
-
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabaseClient.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
