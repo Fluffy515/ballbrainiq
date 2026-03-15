@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BallBrain</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p>Loading BallBrain...</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+  <div class="header-side header-left">
+    <button class="header-nav-btn" data-tab="about">About Us</button>
+  </div>
+
+  <div class="header-center">
+    <img src="logo.png" alt="BallBrain Logo" class="logo">
+  </div>
+
+  <div class="header-side header-right">
+    <button class="header-nav-btn account-placeholder-btn" type="button">Account</button>
+  </div>
+</header>
+
+  <nav class="tabs">
+    <button class="tab-button active" data-tab="ball-list">Ball List</button>
+    <button class="tab-button" data-tab="my-arsenal">My Arsenal</button>
+    <button class="tab-button" data-tab="recommendations">Recommendations</button>
+    <button class="tab-button" data-tab="compare">Compare</button>
+    <button class="tab-button" data-tab="pattern-advisor">Pattern Advisor</button>
+    <button class="tab-button" data-tab="stats">Stats</button>
+  </nav>
+
+  <section id="about" class="tab-content">
+  <div class="about-hero">
+    <div class="about-hero-text">
+      <p class="about-eyebrow">ABOUT BALLBRAIN</p>
+      <h1>Build a smarter bowling arsenal.</h1>
+      <p class="about-subtitle">
+        BallBrain helps bowlers understand what they own, identify lineup gaps,
+        compare equipment, and make smarter decisions about what to add next.
+      </p>
+
+      <div class="about-hero-tags">
+        <span class="about-tag">Arsenal Management</span>
+        <span class="about-tag">Ball Comparison</span>
+        <span class="about-tag">Pattern Tools</span>
+        <span class="about-tag">Purchase Advisor+</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>What BallBrain Is</h3>
+      <p>
+        BallBrain is a bowling arsenal management and recommendation tool built
+        to help bowlers organize their gear, understand motion overlap, and make
+        more confident equipment decisions.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Why It Matters</h3>
+      <p>
+        Instead of guessing what overlaps, what role a ball fills, or what your
+        arsenal is missing, BallBrain brings everything together in one place.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Who It’s For</h3>
+      <p>
+        Whether you bowl league, tournaments, or just want a cleaner read on
+        your equipment, BallBrain helps turn your arsenal into something
+        intentional.
+      </p>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <div class="about-section-header">
+      <h2>What You Can Do</h2>
+      <p>Everything is built to make arsenal decisions easier and more useful.</p>
+    </div>
+
+    <div class="about-feature-grid">
+      <div class="about-feature-card">
+        <div class="about-feature-icon">🎳</div>
+        <h3>Search & Build</h3>
+        <p>Search a growing bowling ball database and build your personal arsenal.</p>
+      </div>
+
+      <div class="about-feature-card">
+        <div class="about-feature-icon">📊</div>
+        <h3>Analyze</h3>
+        <p>See coverage, overlap, motion roles, arsenal score, and ball usage patterns.</p>
+      </div>
+
+      <div class="about-feature-card">
+        <div class="about-feature-icon">⚖️</div>
+        <h3>Compare</h3>
+        <p>Compare balls side by side to understand similarities and differences.</p>
+      </div>
+
+      <div class="about-feature-card">
+        <div class="about-feature-icon">📝</div>
+        <h3>Track Notes</h3>
+        <p>Store layouts, surfaces, and notes so your arsenal stays organized.</p>
+      </div>
+
+      <div class="about-feature-card">
+        <div class="about-feature-icon">🧠</div>
+        <h3>Get Advice</h3>
+        <p>Use Purchase Advisor+ and recommendation tools to find better fits.</p>
+      </div>
+
+      <div class="about-feature-card">
+        <div class="about-feature-icon">🧪</div>
+        <h3>Add Custom Balls</h3>
+        <p>Add balls that are not yet in the database and keep your arsenal complete.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-callout">
+    <div>
+      <p class="about-eyebrow">WHY BALLBRAIN EXISTS</p>
+      <h2>Make arsenal decisions easier.</h2>
+      <p>
+        BallBrain was built so bowlers can stop guessing and start organizing.
+        It helps answer questions like: What overlaps? What role does this ball
+        fill? What am I missing? What should I bring?
+      </p>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <div class="about-section-header">
+      <h2>What’s Coming Next</h2>
+      <p>A few of the next major features planned for BallBrain.</p>
+    </div>
+
+    <div class="about-roadmap-grid">
+      <div class="about-roadmap-card">Accounts & cloud saves</div>
+      <div class="about-roadmap-card">Saved arsenal presets</div>
+      <div class="about-roadmap-card">Advanced purchase advice</div>
+      <div class="about-roadmap-card">More detailed lane pattern tools</div>
+      <div class="about-roadmap-card">Expanded sharing features</div>
+      <div class="about-roadmap-card">Profile & public arsenal pages</div>
+    </div>
+  </div>
+</section>
+
+  <main>
+    <!-- BALL LIST -->
+    <section id="ball-list" class="tab-content active">
+
+  <div class="results-header">
+    <h2>Add Custom Ball</h2>
+    <p>Can’t find your ball? Add it manually.</p>
+  </div>
+
+  <div class="recommendation-box" style="margin-bottom: 20px;">
+    <button type="button" id="toggleCustomBallFormBtn" class="primary-btn" style="margin-bottom: 16px;">
+      + Add Custom Ball
+    </button>
+    <form id="customBallForm" class="custom-ball-form">
+      <input type="hidden" id="customBallEditId" value="" />
+
+      <div class="custom-ball-grid">
+        <input type="text" id="customBrand" placeholder="Brand" required />
+        <input type="text" id="customBallName" placeholder="Ball Name" required />
+
+        <select id="customCategory" required>
+          <option value="">Select Category</option>
+          <option value="Strong/Smooth">Strong/Smooth</option>
+          <option value="Strong/Sharp">Strong/Sharp</option>
+          <option value="Medium/Smooth">Medium/Smooth</option>
+          <option value="Medium/Sharp">Medium/Sharp</option>
+          <option value="Weak/Smooth">Weak/Smooth</option>
+          <option value="Weak/Sharp">Weak/Sharp</option>
+          <option value="Urethane">Urethane</option>
+          <option value="Urethane-Like">Urethane-Like</option>
+        </select>
+
+        <select id="customCoreType">
+          <option value="">Core Type</option>
+          <option value="Symmetric">Symmetric</option>
+          <option value="Asymmetric">Asymmetric</option>
+        </select>
+
+        <input type="text" id="customCoverType" placeholder="Cover Type" />
+        <input type="number" step="0.001" id="customRG" placeholder="RG" />
+        <input type="number" step="0.001" id="customDiff" placeholder="Differential" />
+        <input type="number" step="0.001" id="customIntDiff" placeholder="Intermediate Diff" />
+        <input type="text" id="customImage" placeholder="Image URL (optional)" />
+      </div>
+
+      <div class="custom-ball-actions">
+        <button type="submit" id="customBallSubmitBtn" class="primary-btn">Add Custom Ball</button>
+        <button type="button" id="cancelCustomEditBtn" class="secondary-btn hidden">Cancel Edit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search by ball name or brand..." />
+
+    <select id="brandFilter">
+      <option value="">All Brands</option>
+    </select>
+
+    <select id="categoryFilter">
+      <option value="">All Categories</option>
+    </select>
+  </div>
+
+  <div class="results-header">
+    <h2>Ball Database</h2>
+    <p id="ballCount">0 balls</p>
+  </div>
+
+  <div id="compareBar" class="compare-bar hidden">
+    <span id="compareText">0 balls selected for comparison</span>
+    <button id="compareNowBtn" class="primary-btn">Compare Selected</button>
+  </div>
+
+  <div id="purchaseBar" class="compare-bar hidden">
+    <span id="purchaseText">0 balls in Purchase Advisor</span>
+    <button type="button" onclick="runPurchaseAdvisor()" class="primary-btn">Run Purchase Advisor</button>
+  </div>
+
+  <div id="ballListContainer" class="card-grid"></div>
+</section>
+
+    <!-- MY ARSENAL -->
+    <section id="my-arsenal" class="tab-content">
+  <div class="results-header">
+    <h2>My Arsenal Score</h2>
+    <p>Click to expand your shareable score card.</p>
+  </div>
+
+  <div id="arsenalScoreCard" class="arsenal-score-card collapsed">
+    <div id="arsenalScoreHeader" class="arsenal-score-header">
+      <div class="arsenal-score-badge-wrap">
+        <div id="arsenalScoreBadge" class="arsenal-score-badge">0</div>
+        <div>
+          <h3 style="margin:0;">BallBrain Arsenal Score</h3>
+          <p id="arsenalScoreHeadline" class="small-note" style="margin:4px 0 0 0;">Build your arsenal to generate a score.</p>
+        </div>
+      </div>
+
+      <div class="arsenal-score-header-right">
+        <button id="saveScoreImageBtn" class="primary-btn" type="button">Save Badge as Image</button>
+      </div>
+    </div>
+
+    <div id="arsenalScoreExpanded" class="arsenal-score-expanded hidden">
+      <div id="arsenalScoreExpandedContent"></div>
+    </div>
+  </div>
+
+  <div class="results-header" style="margin-top: 20px;">
+    <h2>My Arsenal</h2>
+    <p id="arsenalCount">0 balls</p>
+  </div>
+
+  <div class="arsenal-actions">
+    <button id="clearArsenalBtn" class="danger">Clear Arsenal</button>
+  </div>
+
+  <div id="arsenalContainer" class="card-grid"></div>
+</section>
+
+    <!-- RECOMMENDATIONS -->
+    <section id="recommendations" class="tab-content">
+      <div class="results-header">
+        <h2>Arsenal Radar</h2>
+        <p>See your current category balance at a glance.</p>
+      </div>
+
+      <div class="radar-layout">
+        <div class="radar-panel">
+          <canvas id="arsenalRadar" width="520" height="520"></canvas>
+        </div>
+
+        <div class="radar-panel">
+          <h3>Radar Legend</h3>
+          <ul class="legend-list" id="radarLegend"></ul>
+          <p class="small-note">
+            Each axis represents one motion slot. Higher values mean you have more balls in that category.
+          </p>
+        </div>
+      </div>
+
+      <div class="results-header">
+        <h2>Arsenal Coverage Map</h2>
+        <p>See which motion slots you already cover.</p>
+      </div>
+
+      <div id="coverageMap" class="coverage-map"></div>
+
+      <div class="results-header">
+        <h2>Overlap Analysis</h2>
+        <p>See where your arsenal may have too much overlap.</p>
+      </div>
+
+      <div class="recommendation-box">
+        <div id="overlapResults"></div>
+      </div>
+
+      <div class="results-header">
+        <h2>Bag Builder</h2>
+        <p>Build a league or tournament bag from your current arsenal.</p>
+      </div>
+
+      <div class="controls">
+        <select id="bagSizeSelect">
+          <option value="3">3 Ball Bag</option>
+          <option value="6" selected>6 Ball Bag</option>
+          <option value="9">9 Ball Bag</option>
+        </select>
+
+        <button id="buildBagBtn" class="primary-btn">Build My Bag</button>
+      </div>
+
+      <div class="bag-builder-layout">
+        <div class="recommendation-box">
+          <h3>Recommended Bag</h3>
+          <div id="bagBuilderResults"></div>
+        </div>
+
+        <div class="recommendation-box">
+          <h3>Missing Slots</h3>
+          <div id="bagBuilderMissing"></div>
+        </div>
+      </div>
+
+      <div class="results-header">
+        <h2>Arsenal Roles</h2>
+        <p>Quickly identify what jobs your current balls fill.</p>
+      </div>
+
+      <div id="roleCards" class="role-grid"></div>
+
+      <div class="results-header">
+        <h2>Arsenal Score</h2>
+        <p>A simple score based on coverage, role balance, and overlap.</p>
+      </div>
+
+      <div class="recommendation-box">
+        <div id="arsenalScore"></div>
+      </div>
+
+      <div class="results-header">
+        <h2>Pattern Advisor</h2>
+        <p>See what your arsenal looks like for common lane environments.</p>
+      </div>
+
+      <div class="controls">
+        <select id="patternSelect">
+          <option value="house">Typical House Shot</option>
+          <option value="short">Short Pattern</option>
+          <option value="sport-medium">Medium Sport Pattern</option>
+          <option value="long">Long / Heavy Pattern</option>
+          <option value="burn">Burn / Late Block</option>
+        </select>
+      </div>
+
+      <div class="recommendation-box">
+        <div id="patternAdvisor"></div>
+      </div>
+
+      <div class="results-header">
+        <h2>Arsenal Motion Map</h2>
+        <p>A visual map of your arsenal by strength and smoothness / angularity.</p>
+      </div>
+
+      <div class="motion-map-layout">
+        <div class="recommendation-box">
+          <canvas id="arsenalMap" width="720" height="420"></canvas>
+        </div>
+        <div class="recommendation-box">
+          <h3>Map Guide</h3>
+          <ul class="map-guide">
+            <li><strong>Left → Right:</strong> Smooth to Angular</li>
+            <li><strong>Bottom → Top:</strong> Weak to Strong</li>
+            <li>Each point is one ball from your arsenal</li>
+          </ul>
+          <p class="small-note">
+            This is a simple visual model based on category, cover, and core type. It is meant to help organize roles, not replace on-lane testing.
+          </p>
+        </div>
+      </div>
+
+      <div class="results-header">
+        <h2>Recommendations</h2>
+        <p>Suggestions based on your current arsenal categories.</p>
+      </div>
+
+      <div class="controls">
+        <select id="recommendationBrandFilter">
+          <option value="">All Recommendation Brands</option>
+        </select>
+      </div>
+
+      <div class="recommendation-layout">
+        <div class="recommendation-box">
+          <h3>Current Category Coverage</h3>
+          <ul id="coverageList"></ul>
+        </div>
+
+        <div class="recommendation-box">
+          <h3>Missing Categories</h3>
+          <ul id="missingCategoriesList"></ul>
+        </div>
+      </div>
+
+      <div class="results-header">
+        <h2>Suggested Balls</h2>
+      </div>
+
+      <div id="recommendationsContainer" class="card-grid"></div>
+
+      <div class="results-header">
+        <h2>Purchase Advisor</h2>
+        <p>See whether a specific ball helps your arsenal or overlaps too much.</p>
+      </div>
+
+      <div class="controls">
+        <select id="purchaseAdvisorSelect">
+          <option value="">Select a ball to evaluate</option>
+        </select>
+      </div>
+
+      <div class="recommendation-box">
+        <div id="purchaseAdvisorResults">
+          <div class="empty-state">Choose a ball above to see whether it fills a gap or overlaps with your current arsenal.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section id="compare" class="tab-content">
+      <div class="results-header">
+        <h2>Ball Comparison Tool</h2>
+        <p>Compare two bowling balls side by side.</p>
+      </div>
+
+      <div class="controls">
+        <select id="compareBall1">
+          <option value="">Select first ball</option>
+        </select>
+
+        <select id="compareBall2">
+          <option value="">Select second ball</option>
+        </select>
+      </div>
+
+      <div id="compareSummary" class="recommendation-box compare-summary-box">
+        <div class="empty-state">Select two balls from the Ball List tab or use the dropdowns here.</div>
+      </div>
+
+      <div id="compareResults" class="compare-grid"></div>
+    </section>
+
+<section id="pattern-advisor" class="tab-content">
+  <div class="results-header">
+    <h2>Pattern Advisor</h2>
+    <p>Enter oil pattern stats and BallBrain will suggest how to attack it.</p>
+  </div>
+
+  <div class="recommendation-box">
+    <div class="pattern-grid">
+      <label>
+        Pattern Length (ft)
+        <input type="number" id="patternLength" placeholder="Example: 42">
+      </label>
+
+      <label>
+        Ratio
+        <input type="number" step="0.1" id="patternRatio" placeholder="Example: 8">
+      </label>
+
+      <label>
+        Volume (mL)
+        <input type="number" step="0.1" id="patternVolume" placeholder="Example: 25">
+      </label>
+
+      <label>
+        Drop Brush
+        <input type="number" id="patternDrop" placeholder="Example: 35">
+      </label>
+
+      <label class="pattern-checkbox">
+        <input type="checkbox" id="urethaneAllowed">
+        Urethane Allowed
+      </label>
+    </div>
+
+    <button class="primary-btn" onclick="analyzePattern()">Analyze Pattern</button>
+  </div>
+
+  <div id="patternResults" class="recommendation-box hidden"></div>
+</section>
+
+<section id="stats" class="tab-content">
+  <div class="results-header">
+    <h2>Stats</h2>
+    <p>Log sessions, track averages, and see which equipment scores best.</p>
+  </div>
+
+  <div class="stats-summary-grid">
+    <div class="recommendation-box">
+      <h3>Overall Average</h3>
+      <div id="overallAverageStat" class="stat-big-number">—</div>
+    </div>
+
+    <div class="recommendation-box">
+      <h3>High Game</h3>
+      <div id="highGameStat" class="stat-big-number">—</div>
+    </div>
+
+    <div class="recommendation-box">
+      <h3>Total Games</h3>
+      <div id="totalGamesStat" class="stat-big-number">0</div>
+    </div>
+
+    <div class="recommendation-box">
+      <h3>Best Ball</h3>
+      <div id="bestBallStat" class="stat-big-label">—</div>
+    </div>
+  </div>
+
+  <div class="recommendation-box" style="margin-bottom: 20px;">
+    <h3>Log a Session</h3>
+
+    <form id="sessionLogForm" class="stats-form">
+      <input type="hidden" id="sessionLogEditId" value="" />
+
+      <div class="stats-form-grid">
+        <div>
+          <label for="sessionDate">Date</label>
+          <input type="date" id="sessionDate" required />
+        </div>
+
+        <div>
+          <label for="sessionType">Session Type</label>
+          <input type="text" id="sessionType" placeholder="League, Practice, Tournament" />
+        </div>
+
+        <div>
+          <label for="sessionCenter">Center</label>
+          <input type="text" id="sessionCenter" placeholder="Bowling center" />
+        </div>
+
+        <div>
+          <label for="sessionGameCount">Number of Games</label>
+          <input type="number" id="sessionGameCount" min="1" max="12" value="3" required />
+        </div>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <button type="button" id="buildSessionGamesBtn" class="primary-btn">Build Game Entry</button>
+      </div>
+
+      <div id="sessionGamesContainer" class="session-games-container"></div>
+
+      <div style="margin-top: 14px;">
+        <label for="sessionNotes">Session Notes</label>
+        <textarea id="sessionNotes" placeholder="How did the session go overall?"></textarea>
+      </div>
+
+      <div class="custom-ball-actions" style="margin-top: 14px;">
+        <button type="submit" id="sessionLogSubmitBtn" class="primary-btn">Save Session</button>
+        <button type="button" id="cancelSessionEditBtn" class="secondary-btn hidden">Cancel Edit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="stats-two-column">
+    <div class="recommendation-box">
+      <h3>Recent Sessions</h3>
+      <div id="recentGamesList"></div>
+    </div>
+
+    <div class="recommendation-box">
+      <h3>Ball Performance</h3>
+      <div id="ballPerformanceList"></div>
+    </div>
+  </div>
+</section>
+
+<div id="toastContainer" class="toast-container"></div>
+
+  </main>
+
+<script src="js/storage.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/ballList.js"></script>
+<script src="js/arsenal.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/advisor.js"></script>
+<script src="js/patterns.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
