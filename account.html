@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BallBrain Account</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/auth.js"></script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+    <a href="index.html">
+        <img src="logo.png" class="logo">
+    </a>
+</header>
+
+<main class="account-page">
+
+<h1>Account</h1>
+
+<div id="loggedOutView">
+
+<input id="signupName" type="text" placeholder="Display Name">
+
+<input id="authEmail" type="email" placeholder="Email">
+
+<input id="authPassword" type="password" placeholder="Password">
+
+<button id="signupBtn">Create Account</button>
+
+<button id="loginBtn">Log In</button>
+
+</div>
+
+<div id="loggedInView" style="display:none">
+
+<p>Logged in as: <span id="accountEmail"></span></p>
+
+<button id="logoutBtn">Log Out</button>
+
+</div>
+
+<p id="authMessage"></p>
+
+</main>
+
+</body>
+</html>
