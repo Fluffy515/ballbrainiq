@@ -73,19 +73,36 @@ async function bbLogIn() {
   const email = document.getElementById("authEmail")?.value.trim() || "";
   const password = document.getElementById("authPassword")?.value || "";
   const authMessage = document.getElementById("authMessage");
+  const loginBtn = document.getElementById("loginBtn");
 
   if (!email || !password) {
     if (authMessage) authMessage.textContent = "Enter an email and password.";
     return;
   }
 
-  const { error } = await window.BB_Supabase.auth.signInWithPassword({
+  if (loginBtn) {
+    loginBtn.disabled = true;
+    loginBtn.textContent = "Logging In...";
+  }
+
+  const { data, error } = await window.BB_Supabase.auth.signInWithPassword({
     email,
     password
   });
 
+  console.log("Login result:", { data, error });
+
   if (authMessage) {
-    authMessage.textContent = error ? error.message : "Logged in.";
+    authMessage.textContent = error ? error.message : "Logged in successfully.";
+  }
+
+  if (loginBtn) {
+    loginBtn.disabled = false;
+    loginBtn.textContent = "Log In";
+  }
+
+  if (!error) {
+    await bbRefreshAuthUI();
   }
 }
 
