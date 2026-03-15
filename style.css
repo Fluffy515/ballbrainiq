@@ -2024,3 +2024,122 @@ margin-top:8px;
     width: 100%;
   }
 }
+
+.account-body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(27, 123, 255, 0.12), transparent 30%),
+    radial-gradient(circle at top right, rgba(214, 29, 255, 0.12), transparent 30%),
+    linear-gradient(180deg, #0b1220 0%, #111a2e 100%);
+  color: #f4f7fb;
+}
+
+.account-page-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.account-card {
+  width: 100%;
+  max-width: 760px;
+  background: rgba(12, 18, 32, 0.84);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+
+.account-eyebrow {
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #7fb1ff;
+}
+
+.account-subtitle {
+  color: #b7c3da;
+  line-height: 1.6;
+}
+
+.account-form-grid,
+.account-info-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.account-info-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 1rem;
+}
+
+.account-info-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.account-info-box h3 {
+  margin: 0 0 8px 0;
+  color: #9fb7db;
+  font-size: 0.95rem;
+}
+
+.account-info-box p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.account-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.account-status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(70, 201, 126, 0.12);
+  color: #86e4a6;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.account-link-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-message {
+  min-height: 24px;
+  margin-top: 18px;
+}
