@@ -158,10 +158,10 @@
       });
     }
 
-    const accountBtn = document.querySelector(".account-placeholder-btn");
+    const accountPlaceholderBtn = document.querySelector(".account-placeholder-btn");
 
-if (accountBtn) {
-  accountBtn.addEventListener("click", () => {
+if (accountPlaceholderBtn) {
+  accountPlaceholderBtn.addEventListener("click", () => {
     window.location.href = "account.html";
   });
 }
