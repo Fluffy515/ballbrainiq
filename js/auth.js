@@ -1,11 +1,12 @@
 async function bbRefreshAuthUI() {
   const { data, error } = await window.BB_Supabase.auth.getUser();
-
   const user = data?.user || null;
 
   const loggedOutView = document.getElementById("loggedOutView");
   const loggedInView = document.getElementById("loggedInView");
   const accountEmail = document.getElementById("accountEmail");
+  const accountDisplayName = document.getElementById("accountDisplayName");
+  const subscriptionStatus = document.getElementById("subscriptionStatus");
   const authMessage = document.getElementById("authMessage");
 
   if (error) {
@@ -15,12 +16,28 @@ async function bbRefreshAuthUI() {
   if (user) {
     if (loggedOutView) loggedOutView.style.display = "none";
     if (loggedInView) loggedInView.style.display = "block";
-    if (accountEmail) accountEmail.textContent = user.email || "";
+
+    if (accountEmail) {
+      accountEmail.textContent = user.email || "No email";
+    }
+
+    if (accountDisplayName) {
+      accountDisplayName.textContent =
+        user.user_metadata?.display_name || "No display name set";
+    }
+
+    if (subscriptionStatus) {
+      subscriptionStatus.textContent = "Free";
+    }
+
     if (authMessage) authMessage.textContent = "";
   } else {
     if (loggedOutView) loggedOutView.style.display = "block";
     if (loggedInView) loggedInView.style.display = "none";
+
     if (accountEmail) accountEmail.textContent = "";
+    if (accountDisplayName) accountDisplayName.textContent = "";
+    if (subscriptionStatus) subscriptionStatus.textContent = "Free";
   }
 }
 
