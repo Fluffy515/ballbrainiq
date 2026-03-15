@@ -1,4 +1,4 @@
 window.BB_CONFIG = {
-  supabaseUrl: "YOUR_SUPABASE_URL",
-  supabaseAnonKey: "YOUR_SUPABASE_ANON_KEY"
+  supabaseUrl: "https://fedrxgrcrchdzdzjjgur.supabase.co",
+  supabaseAnonKey: "sb_publishable_wRlNM5c1neAF0DJpEzgPhg_hWHlwQt_"
 };
